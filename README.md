@@ -19,6 +19,6 @@ repositories {
 
 ```
 dependencies {
-  compile 'com.github.NOMAD-Live:android-client:1.0.0'
+  compile 'com.github.NOMAD-Live:android-client:1.0.1'
 }
 ```
