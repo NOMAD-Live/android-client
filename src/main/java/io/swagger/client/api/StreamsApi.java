@@ -284,6 +284,59 @@ public class StreamsApi {
   }
   
   /**
+   * Create a New Stream
+   * The endpoint to create a new stream.\n
+   * @return Stream
+   */
+  public Stream  streamsPost () throws ApiException {
+    Object postBody = null;
+    
+
+    // create path and map variables
+    String path = "/streams".replaceAll("\\{format\\}","json");
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    
+
+    
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = builder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+      
+    }
+
+    try {
+      String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (Stream) ApiInvoker.deserialize(response, "", Stream.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      throw ex;
+    }
+  }
+  
+  /**
    * Clean Streams
    * Destroys all the Streams that did not report in the last 15 seconds.\n
    * @return Heartbeats
