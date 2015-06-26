@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.io.File;
 
 public class HeartbeatApi {
-  String basePath = "http://api.nomadlive.tv:8080/";
+  String basePath = "http://api.nomadlive.tv/";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -57,7 +57,7 @@ public class HeartbeatApi {
     
 
     // create path and map variables
-    String path = "/stream/{stream_id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "streamId" + "\\}", apiInvoker.escapeString(streamId.toString()));
+    String path = "/stream/{stream_id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "stream_id" + "\\}", apiInvoker.escapeString(streamId.toString()));
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
